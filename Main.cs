@@ -58,7 +58,7 @@ namespace CS161_Lab9
                                 highestSection = fileIndex;
                             }
 
-                            if(lowestScore > currentScore) // Checking for the lowest score.
+                            if (lowestScore > currentScore) // Checking for the lowest score.
                             {
                                 //Updating the lowest score.
                                 lowestScore = currentScore;
@@ -66,7 +66,8 @@ namespace CS161_Lab9
                             }
 
                             index++; // Updating the line index.
-                        }catch(Exception ex)
+                        }
+                        catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message); // Displayin
                         }
@@ -81,14 +82,14 @@ namespace CS161_Lab9
                 calculateAverage(); // Calculating the overall average.
 
                 highestScoreLabel.Text = highestScore.ToString("n2"); //Displaying highest score.
-                highestSectionLabel.Text = (highestSection+1).ToString();
+                highestSectionLabel.Text = (highestSection + 1).ToString();
 
                 lowestScoreLabel.Text = lowestScore.ToString("n2"); // Displaying lowest score,
-                lowestSectionLabel.Text = (lowestSection+1).ToString();
+                lowestSectionLabel.Text = (lowestSection + 1).ToString();
 
 
             }
-            catch(Exception ex) // Catching any incompetence.
+            catch (Exception ex) // Catching any incompetence.
             {
                 MessageBox.Show(ex.Message); // Displaying any errors.
             }
@@ -97,7 +98,7 @@ namespace CS161_Lab9
         private void calculateSectionAverage(int section) // Method to calculate the section average, that has an argument for the section to calculate.
         {
             Label[] sectionAverageLabels = { section1AverageLabel, section2AverageLabel, section3AverageLabel }; // List of average labels for easy access.
-            
+
             double totalScore = 0.00;
             foreach (var score in SECTIONS[section]) // Looping through each score
             {
@@ -118,6 +119,11 @@ namespace CS161_Lab9
             double average = (averageScoreSec1 + averageScoreSec2 + averageScoreSec3) / 3; // Calculating the overall average.
 
             averageLabel.Text = average.ToString("n2"); // Diplaying the average.
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
